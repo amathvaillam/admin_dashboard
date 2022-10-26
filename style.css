@@ -1,4 +1,8 @@
 :root {
+    --nav: #ffafcc;
+    --header: #ffc8dd;
+    --main: #bde0fe;
+    --side: #cdb4db;
     font-size: 16px;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
@@ -11,18 +15,28 @@ body {
     margin: 0;
 }
 
+img {
+    margin-right: 10px;
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+img[src*="images"] {
+    border-radius: 50%;
+}
+
 .container {
     height: inherit;
     width: inherit;
     display: grid;
-    grid-template-columns: minmax(150px, 1fr) 6fr;
-    grid-template-rows: 20% 85%;
+    grid-template-columns: minmax(200px, 1fr) 6fr;
+    grid-template-rows: 17% 85%;
 }
 
 .nav {
     grid-column: 1/2;
     grid-row: 1/3;
-    background-color: white;
+    background-color: var(--nav);
 }
 
 .nav>div {
@@ -32,12 +46,6 @@ body {
     margin-left: 15px;
     display: flex;
     align-items: center;
-}
-
-.nav img {
-    margin-right: 10px;
-    width: 1.5rem;
-    height: 1.5rem;
 }
 
 .nav div:first-child {
@@ -63,11 +71,211 @@ body {
     font-size: 1.5rem;
 }
 
+
+/*header*/
+
 .header {
-    grid-column: 2/3;
-    background-color: antiquewhite;
+    min-height: 12%;
+    padding-top: 2%;
+    background-color: var(--header);
+    display: grid;
+    grid-template-columns: 2fr 10% 1fr 10%;
+    grid-template-rows: 1fr 1fr;
+}
+
+.header button.unset,
+.card-action button.unset {
+    all: unset;
+}
+
+.header img.icon {
+    width: 1rem;
+    height: 1rem;
+}
+
+.headerLeft1 {
+    grid-area: 1/1/2/3;
+    display: flex;
+}
+
+.headerLeft1 button img.icon {
+    width: 2rem;
+    height: 2rem;
+}
+
+.headerLeft1 input {
+    flex: 0 1 80%;
+    border: 3px solid black;
+    border-radius: 20px;
+    background-color: rgba(248, 240, 240, 0.754);
+    display: flex;
+    justify-content: flex-start;
+    height: 30px;
+}
+
+.headerLeft2 {
+    grid-area: 2/1/3/3;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.headerLeft2>img {
+    width: 4rem;
+    height: 4rem
+}
+
+.headerLeft2>p {
+    padding: 0;
+    margin: 0;
+}
+
+.headerLeft2>p>span:nth-of-type(1) {
+    font-size: 0.7rem;
+}
+
+.headerLeft2>p>span:nth-of-type(2) {
+    font-size: 1.5rem;
+}
+
+.headerLeft2>p:nth-of-type(1),
+.headerLeft2>p:nth-of-type(2) {
+    font-weight: bolder;
+}
+
+.headerRight1 {
+    grid-area: 1/3/2/4;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.headerRight1>div {
+    margin-left: 50px;
+    font-weight: bolder;
+}
+
+.headerRight2 {
+    grid-area: 2/3/3/4;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.headerRight2 button {
+    flex: 0 1 30%;
+    height: 30px;
+    color: white;
+    border: none;
+    border-radius: 15px;
+    background-color: rgb(20, 114, 215);
+}
+
+.header>div:nth-child(1),
+.header>div:nth-child(3) {
+    margin-left: 50px;
+    padding-bottom: 1%;
 }
 
 .main {
-    background-color: grey;
+    background-color: var(--main);
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    grid-template-rows: 1fr;
+    max-width: 100%;
+    min-width: 550px;
+}
+
+.main .cards {
+    overflow: auto;
+}
+
+.main .cards h4 {
+    margin-left: 4%
+}
+
+.main .cards-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+    row-gap: 20px;
+    justify-items: center;
+}
+
+.main .cards-container .card {
+    width: 80%;
+    display: grid;
+    background: linear-gradient(to right, rgb(20, 114, 215) 2%, #ffffff 2%);
+    padding: 3% 3%;
+    border-radius: 10px;
+}
+
+.main .cards-container .card h5 {
+    margin: 5px;
+}
+
+.main .cards-container .card .card-action {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.main .cards-container .card p {
+    height: 100px;
+    overflow: auto;
+}
+
+.main .cards-container .card .card-action button {
+    margin-left: 10px
+}
+
+.main .side {
+    padding-left: 4%;
+    background-color: var(--side);
+    display: grid;
+    grid-template-rows: min-content min-content min-content min-content;
+}
+
+.side h4 {
+    margin-left: 4%;
+    height: min-content
+}
+
+.side h5 {
+    height: min-content;
+    margin: 5px;
+}
+
+.side p {
+    font-size: .75rem;
+}
+
+.side .card {
+    border-radius: 10px;
+    padding: 3% 3%;
+    width: 70%;
+    background-color: #ffffff;
+}
+
+.side .trendings {
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    row-gap: 20px
+}
+
+.side .trendings>p {
+    padding: 0;
+    margin: 0;
+}
+
+.side .trendings>img {
+    width: 2rem;
+    height: 2rem;
+}
+
+.side .trendings>p>span:nth-of-type(2) {
+    font-size: 0.7rem;
+}
+
+.side .trendings>p>span:nth-of-type(1) {
+    font-size: .75rem;
+    font-weight: bolder;
 }
